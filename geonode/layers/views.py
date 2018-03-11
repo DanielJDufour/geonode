@@ -562,7 +562,7 @@ def layer_detail(request, layername, template='layers/layer_detail.html'):
         # check if user has enabled geotiff.io integration
         if getattr(settings, "ENABLE_GEOTIFF_IO", False) == True:
             # get link to geoserver for downloading GeoTIFF
-            link_download_geotiff = next(link.url for link in links_download if item.name == "GeoTIFF")
+            link_download_geotiff = next(link.url for link in links_download if link.name == "GeoTIFF")
             
             # remove bbox param
             link_download_geotiff = re.sub("&bbox[^&]+", "", link_download_geotiff)
