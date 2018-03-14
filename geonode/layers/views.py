@@ -559,8 +559,10 @@ def layer_detail(request, layername, template='layers/layer_detail.html'):
         
     # check if layer is a raster
     if layer.storeType == 'coverageStore':
+        
         # check if user has enabled geotiff.io integration
         if getattr(settings, "ENABLE_GEOTIFF_IO", False) == True:
+            
             # get link to geoserver for downloading GeoTIFF
             link_download_geotiff = next(link.url for link in links_download if link.name == "GeoTIFF")
             
@@ -569,19 +571,15 @@ def layer_detail(request, layername, template='layers/layer_detail.html'):
             
             # make sure using public geoserver location
             link_download_geotiff = link_download_geotiff.replace(settings.GEOSERVER_LOCATION, settings.GEOSERVER_PUBLIC_LOCATION)
-            print("link_download_geotiff", link_download_geotiff)
             if link_download_geotiff:
                 geotiff_io_base = getattr(settings, "GEOTIFF_IO_BASE", "https://app.geotiff.io")
                 
-                print("link_download_geotiff:", link_download_geotiff)
-                print("geotiff_io_base:", geotiff_io_base)
                 # set correct scheme
                 if link_download_geotiff.startswith("https://"):
                     geotiff_io_base = geotiff_io_base.replace("http://", "https://")
                 else:
                     geotiff_io_base = geotiff_io_base.replace("https://", "http://")
-                print("geotiff_io_base:", geotiff_io_base)
-                
+
                 context_dict["link_geotiff_io"] = geotiff_io_base + "?url=" + quote(link_download_geotiff)
 
     # maps owned by user needed to fill the "add to existing map section" in template
