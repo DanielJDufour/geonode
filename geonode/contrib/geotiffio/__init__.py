@@ -24,4 +24,4 @@ def create_geotiff_io_url(layer, access_token):
 
         url_to_geotiff = settings.GEOSERVER_PUBLIC_LOCATION + "wcs?" + urlencode(params)
 
-        return settings.URL_TO_GEOTIFF_IO_APP + "?url=" + quote(url_to_geotiff)
+        return settings.GEOTIFF_IO_BASE_URL + "?url=" + quote(url_to_geotiff)

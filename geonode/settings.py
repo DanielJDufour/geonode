@@ -1275,8 +1275,8 @@ GEOTIFF_IO_ENABLED = strtobool(
 )
 
 # if your public geoserver location does not use HTTPS,
-# you must set GEOTIFF_IO_BASE to use http://
+# you must set GEOTIFF_IO_BASE_URL to use http://
 # for example, http://app.geotiff.io
-URL_TO_GEOTIFF_IO_APP = os.getenv(
-    'URL_TO_GEOTIFF_IO_APP', 'https://app.geotiff.io'
+GEOTIFF_IO_BASE_URL = os.getenv(
+    'GEOTIFF_IO_BASE_URL', 'https://app.geotiff.io'
 )
