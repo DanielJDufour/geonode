@@ -557,7 +557,7 @@ def layer_detail(request, layername, template='layers/layer_detail.html'):
         print "Possible error with OWSLib. Turning all available properties to string"
 
 
-    if settings.ENABLE_GEOTIFF_IO:
+    if settings.GEOTIFF_IO_ENABLED:
         from geonode.contrib.geotiffio import create_geotiff_io_url
         context_dict["link_geotiff_io"] = create_geotiff_io_url(layer, access_token)
 

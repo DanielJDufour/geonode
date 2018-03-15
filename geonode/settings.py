@@ -1270,8 +1270,8 @@ THUMBNAIL_GENERATOR = "geonode.geoserver.helpers.create_gs_thumbnail_geonode"
 
 
 
-ENABLE_GEOTIFF_IO = strtobool(
-    os.getenv('ENABLE_GEOTIFF_IO', 'False')
+GEOTIFF_IO_ENABLED = strtobool(
+    os.getenv('GEOTIFF_IO_ENABLED', 'False')
 )
 
 # if your public geoserver location does not use HTTPS,
