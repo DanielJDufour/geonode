@@ -1269,7 +1269,6 @@ TEMPLATE_CONTEXT_PROCESSORS += ('django.core.context.processors.request', )
 THUMBNAIL_GENERATOR = "geonode.geoserver.helpers.create_gs_thumbnail_geonode"
 
 
-
 GEOTIFF_IO_ENABLED = strtobool(
     os.getenv('GEOTIFF_IO_ENABLED', 'False')
 )
